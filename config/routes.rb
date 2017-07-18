@@ -1,3 +1,5 @@
+require 'api_version_constraint'
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -5,9 +7,12 @@ Rails.application.routes.draw do
   #user
   #cliente
   #deste modo conseguiria acessar na ulr do browser passando localhost:3000/api/cliente 
-  namespace :api, defaults:    {format: JSON }, constraints: {subdomain: 'api'}, path: "/" do
 
     #Acesso: api.nomeDoSite.com/nomeControllerDefinidoAqui
     #Acesso Local: api.localhost:3000
+  namespace :api, defaults: {format: JSON }, constraints: {subdomain: 'api'}, path: "/" do
+    namespace :v1, path: "/", constraints: ApiVersionConstraint.new(version: 1, default: true) do
+      #resources :tarefas
+    end
   end
 end
