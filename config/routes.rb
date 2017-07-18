@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   #user
   #cliente
   #deste modo conseguiria acessar na ulr do browser passando localhost:3000/api/cliente 
-  namespace :api, defaults:    {format: json }, 
-                  constraints: {subdomain: 'api'},
-                  path: "/" do
+  namespace :api, defaults:    {format: JSON }, constraints: {subdomain: 'api'}, path: "/" do
 
     #Acesso: api.nomeDoSite.com/nomeControllerDefinidoAqui
     #Acesso Local: api.localhost:3000
