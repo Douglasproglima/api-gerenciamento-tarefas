@@ -9,6 +9,7 @@ Rails.application.routes.draw do
                   constraints: {subdomain: 'api'},
                   path: "/" do
 
-    
+    #Acesso: api.nomeDoSite.com/nomeControllerDefinidoAqui
+    #Acesso Local: api.localhost:3000
   end
 end
