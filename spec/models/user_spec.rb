@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
   # it { expect(user).to respond_to(:password_confirmation) }
   # it { expect(user).to be_valid }
 
-  let(:user){ FactoryGirl.build(:user) }
+  let(:user){ build(:user) }
   #it { expect(user).to respond_to(:email) }
 
   #Teste quando o usuário for vázio

@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 
     #Acesso: api.nomeDoSite.com/nomeControllerDefinidoAqui
     #Acesso Local: api.localhost:3000
-  namespace :api, defaults: {format: JSON }, constraints: {subdomain: 'api'}, path: "/" do
+  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: "/" do
     namespace :v1, path: "/", constraints: ApiVersionConstraint.new(version: 1, default: true) do
-      #resources :tarefas
+      resources :users, only: [:show]
     end
   end
+
 end
