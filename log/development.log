@@ -82,3 +82,116 @@ Migrating to DeviseCreateUsers (20170718005926)
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
   [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
   [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+Started GET "/" for 10.0.2.2 at 2017-07-20 01:01:25 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"internal"=>true}
+  Rendering /home/ubuntu/.rvm/gems/ruby-2.4.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rvm/gems/ruby-2.4.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (11.8ms)
+Completed 200 OK in 45ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:02:29 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 14ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:02:51 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 3ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:04:03 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 14ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:09:17 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-07-20 01:09:27 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/ubuntu/.rvm/gems/ruby-2.4.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rvm/gems/ruby-2.4.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (13.8ms)
+Completed 200 OK in 52ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'douglasproglima@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1435.9ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('douglasproglima@gmail.com', '$2a$11$cVkXBpO6EpaZbAuF6gZAD.M1QpOuc64uk/Vh6snKsfPReCJpLgama', '2017-07-20 01:11:56', '2017-07-20 01:11:56')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'chico@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('chico@gmail.com', '$2a$11$3ViTajL6ZRUPNKffDU6COePiCjsSfId4DN2XG3wDgJROKb/7wgUmG', '2017-07-20 01:12:11', '2017-07-20 01:12:11')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:12:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 20ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:12:59 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:13:44 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2" for 10.0.2.2 at 2017-07-20 01:14:29 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/3" for 10.0.2.2 at 2017-07-20 01:14:41 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 10.0.2.2 at 2017-07-20 01:14:44 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/ubuntu/.rvm/gems/ruby-2.4.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rvm/gems/ruby-2.4.0/gems/railties-5.0.4/lib/rails/templates/rails/welcome/index.html.erb (17.3ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:14:52 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2017-07-20 01:17:28 +0000
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"subdomain"=>"api", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
