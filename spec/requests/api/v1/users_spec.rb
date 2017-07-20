@@ -33,4 +33,39 @@ RSpec.describe 'Users API', type: :request do
 
   end
 
+  describe 'POST /users' do
+    #Antes de cada 'it' será executando a instrução dentro do 'before do ... end'
+    before do
+      headers = { 'Accept' => 'application/vnd.taskmanager.v1' }
+      post '/users', params: { rest_user: user_params }, headers: headers 
+    end
+
+    context 'Quando os parâmetros da requisição são válidos' do
+      let(:user_params) { FactoryGirl.attributes_for(:user) }
+
+      it 'Retorno da requisição código 201' do
+        expect(response).to  have_http_status(201)
+      end
+
+      it 'Retorno do json data para o usuário criado' do
+        user_response = JSON.parse(response.body)
+        expect(user_response['email']).to eq(user_params[:email])
+      end
+    end
+
+    context 'Quando os parâmetros da requisição são inválidos' do
+      let(:user_params) { attributes_for(:user, email: 'invalid_email@') }
+
+      it 'Retorno do status código 422' do
+        #422 - Recebeu a requisição, porém o app não deixou salvar por alguma razão
+        expect(response).to have_http_status(422)
+      end
+
+      it 'Retorno do json data para o erro' do
+        user_response = JSON.parse(response.body)
+        expect(user_response).to have_key('errors')
+      end
+    end
+  end
+
 end
