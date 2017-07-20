@@ -32,14 +32,14 @@ RSpec.describe User, type: :model do
 
   #Teste quando o usuário for vázio
   # context 'when name is blank' do
-  #   before { user.name = " " }
+  #   before { user.name = ' ' }
 
   #   it { expect(user).not_to be_valid }
   # end
 
   #Teste quando o usuário for null
   # context 'when name is nill' do
-  #   before { user.name = " " }
+  #   before { user.name = ' ' }
 
   #   it { expect(user).not_to be_valid }
   # end
@@ -51,5 +51,5 @@ RSpec.describe User, type: :model do
   it {is_expected.to validate_presence_of(:email) }
   it {is_expected.to validate_uniqueness_of(:email).case_insensitive } #Testa se o e-mail é unico e case insensitive
   it {is_expected.to validate_confirmation_of(:password) } #Testa se a senha é igual ao informado no password_confirmation
-  it {is_expected.to allow_value("douglasproglima@gmail.com").for(:email) }
+  it {is_expected.to allow_value('douglasproglima@gmail.com').for(:email) }
 end
