@@ -30,6 +30,16 @@ class Api::V1::UsersController < ApplicationController
       end
   end
 
+  def destroy 
+    user = User.find(params[:id])
+    # user.destroy
+    if user.destroy
+      render json: user, status: 204
+    else
+      render json: { errors: user.errors }, status: 422
+    end
+  end
+
   private
   def user_params
     params.require(:rest_user).permit(:email, :password, :password_confirmation)
