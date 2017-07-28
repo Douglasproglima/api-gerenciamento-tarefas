@@ -108,12 +108,15 @@ RSpec.describe 'Users API', type: :request do
       delete "/users/#{user_id}", params: {}, headers: headers 
     end
 
-    it 'Retorno do status com o código 204' do
-      expect(response).to have_http_status(204)
-    end
+    context 'D - Quando os parâmetros da requisição são válidos' do
+      it 'D - Retorno do status com o código 204' do
+        expect(response).to have_http_status(204)
+        expect(response).to 'O usuário foi deletado com sucesso.'
+      end
 
-    it 'Verifica se o usuário foi removido do BD' do
-      expect( User.find_by(id: user_id)).to be_nil
+      it 'D - Verifica se o usuário foi removido do BD' do
+        expect( User.find_by(id: user_id)).to be_nil
+      end
     end
   end
 end
