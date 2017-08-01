@@ -53,5 +53,5 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_confirmation_of(:password) } 
   it { is_expected.to validate_confirmation_of(:password_confirmation) } #Testa se a senha é igual ao informado no password_confirmation
   it { is_expected.to allow_value('douglasproglima@gmail.com').for(:email) }
-  it { is_expected.to validate_uniqueness_of(:auth_tokens) }
+  it { is_expected.to validate_uniqueness_of(:auth_token) }
 end
