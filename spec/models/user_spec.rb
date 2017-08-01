@@ -52,6 +52,16 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive } #Testa se o e-mail é unico e case insensitive
   it { is_expected.to validate_confirmation_of(:password) } 
   it { is_expected.to validate_confirmation_of(:password_confirmation) } #Testa se a senha é igual ao informado no password_confirmation
-  it { is_expected.to allow_value('douglasproglima@gmail.com').for(:email) }
+  #it { is_expected.to allow_value('douglasproglima@gmail.com').for(:email) }
+  #it { is_expected.to allow_value(user.email).for(:email) }
   it { is_expected.to validate_uniqueness_of(:auth_token) }
+
+  #Teste método de instância do model user
+  describe '#info' do
+    it 'Retorna o e-mail e a data de criação do usuário' do
+      user.save!
+
+      expect(user.info).to eq("#{user.email} - #{user.created_at}")
+    end
+  end
 end
