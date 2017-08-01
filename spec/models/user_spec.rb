@@ -48,9 +48,10 @@ RSpec.describe User, type: :model do
   #it { expect(user).to validate_presence_of(:name) }
   # it {is_expected.to validate_numericality_of(:age) }
   
-  it {is_expected.to validate_presence_of(:email) }
-  it {is_expected.to validate_uniqueness_of(:email).case_insensitive } #Testa se o e-mail é unico e case insensitive
-  it {is_expected.to validate_confirmation_of(:password) } 
-  it {is_expected.to validate_confirmation_of(:password_confirmation) } #Testa se a senha é igual ao informado no password_confirmation
-  it {is_expected.to allow_value('douglasproglima@gmail.com').for(:email) }
+  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_uniqueness_of(:email).case_insensitive } #Testa se o e-mail é unico e case insensitive
+  it { is_expected.to validate_confirmation_of(:password) } 
+  it { is_expected.to validate_confirmation_of(:password_confirmation) } #Testa se a senha é igual ao informado no password_confirmation
+  it { is_expected.to allow_value('douglasproglima@gmail.com').for(:email) }
+  it { is_expected.to validate_uniqueness_of(:auth_tokens) }
 end
